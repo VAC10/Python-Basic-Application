@@ -1,0 +1,73 @@
+def faktoriyel(sayi): #recursive fonks.
+    if sayi==1:
+        return 1
+    return sayi *faktoriyel(sayi-1)
+
+print(faktoriyel(5))    
+
+
+
+# lambda fonksiyonu kullanımı
+def topla(sayi1,sayi2): # normal fonksiyon
+    return sayi1+sayi2
+
+print(topla(6,2))
+
+
+
+#asagıda yukarıdaki fonksiyonun lambda hali gosterilmistir
+topla=lambda sayi1,sayi2: sayi1+sayi2
+print(topla(5,2))
+
+
+(lambda x,y:x+y)(2,3) #parametreyi bu sekilde de gonderebiliriz
+
+
+ages=[13,90,17,59,21,60,50]
+
+adults=list(filter(lambda age: age>18,ages)) # filter liste ve yapmak istediğimiz işlemi  alır. yukarıdakı ages listesini teker teker dolaşır(bir nevi for gibi) yaşı 18 den buyuk olanları yaz
+print(adults)
+
+
+my_list=[1,5,4,6,8,11,3,12]
+new_list=list(filter(lambda x:(x%2==0),my_list)) # yukarıdaki my_list listesini teker teker gezecek ve cift sayıları çekecek
+print(new_list)
+
+# filter koşula uyabları listeye atarken map tumunu alır
+
+# map ornegi
+listem=[1,5,4,6,8,11,3,12]
+yeniList=list(map(lambda x:x*2,listem))
+print(yeniList)
+
+
+#forlu ornek 
+tables=[lambda x=x:x*10 for x in range(1,10)] # x=x: dememizin sebebi for dan gelen x soldaki x e gider.
+for table in tables:
+    print(table())
+
+
+#soru
+animals=["dog","cat","parrot","rabbit"] #listedeki hayvan isimlerini buyuk yazıp yeni bir listeye yazdık
+fresh_list=list(map(lambda x:x.upper(),animals))    
+print(fresh_list)
+
+# bu sekildede yapılabılır
+def buyut(s):
+    return s.upper()
+
+new_animals=list(map(buyut,animals))
+print(new_animals)
+
+
+kareler=[lambda x=x:x**2 for x in range(1,11) ]
+for kare in kareler:
+    print(kare(),end=",")
+
+
+# faktoriyel
+
+
+fact = lambda a:a*fact(a-1) if(a>1) else 1
+print(fact(5))
+    
